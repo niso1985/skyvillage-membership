@@ -15,10 +15,10 @@
             <div class="columns is-centered is-multiline has-text-white has-text-centered	">
                 <div class="column is-one-third">
                     <p class="is-size-4 has-text-weight-bold">
-                        SkyVillageメンバーシップ
+                        SkyVillageプレメンバーシップ
                     </p>
                     <p class="is-size-4">
-                        ¥1,000/月(無料期間60日)
+                        ¥2,000/月(2020年1月1日から有料)
                     </p>
                     <!-- Load Stripe.js on your website. -->
                     <script src="https://js.stripe.com/v3"></script>
@@ -26,7 +26,7 @@
                     <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
                     <button
                         style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-                        id="checkout-button-plan_G62q512zH9lL3G" role="link">
+                        id="checkout-button-plan_GMBmCsaaC91vNi" role="link">
                         購入する
                     </button>
 
@@ -34,14 +34,14 @@
 
                     <script>
                         (function () {
-                            var stripe = Stripe('pk_live_2CM4yqEOVmCMG6BwKXf9dTLw00ICZ60Wmw');
+                            var stripe = Stripe('pk_test_wClBpSWJPGtjh9d8npz3l80J003JVoZWZP');
 
-                            var checkoutButton = document.getElementById('checkout-button-plan_G62q512zH9lL3G');
+                            var checkoutButton = document.getElementById('checkout-button-plan_GMBmCsaaC91vNi');
                             checkoutButton.addEventListener('click', function () {
                                 // When the customer clicks on the button, redirect
                                 // them to Checkout.
                                 stripe.redirectToCheckout({
-                                    items: [{ plan: 'plan_G62q512zH9lL3G', quantity: 1 }],
+                                    items: [{ plan: 'plan_GMBmCsaaC91vNi', quantity: 1 }],
 
                                     // Do not rely on the redirect to the successUrl for fulfilling
                                     // purchases, customers may not always reach the success_url after
@@ -49,7 +49,7 @@
                                     // Instead use one of the strategies described in
                                     // https://stripe.com/docs/payments/checkout/fulfillment
                                     successUrl: 'https://niso1985.github.io/skyvillage-membership/success.html',
-                                    cancelUrl: 'https://niso1985.github.io/skyvillage-membership/canceled',
+                                    cancelUrl: 'https://niso1985.github.io/skyvillage-membership/canceled.html',
                                 })
                                     .then(function (result) {
                                         if (result.error) {
